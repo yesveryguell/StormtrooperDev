@@ -15,12 +15,12 @@ public class Operador {
     private String apellido;
     private String cedula;
     private String telefono;
-    private String estado;
+    private boolean estado ;
 
     public Operador() {
     }
 
-    public Operador(Long id, int id_cuadrilla, int id_turno, String nombre, String apellido, String cedula, String telefono, String estado) {
+    public Operador(Long id, int id_cuadrilla, int id_turno, String nombre, String apellido, String cedula, String telefono, boolean estado) {
         this.id = id;
         this.id_cuadrilla = id_cuadrilla;
         this.id_turno = id_turno;
@@ -87,11 +87,11 @@ public class Operador {
         this.telefono = telefono;
     }
 
-    public String getEstado() {
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 }

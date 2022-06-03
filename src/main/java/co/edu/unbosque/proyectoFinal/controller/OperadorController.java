@@ -68,7 +68,12 @@ public class OperadorController {
         Operador result = operadorRepository.save(operador);
         return ResponseEntity.ok(result);
     }
-
+    //actualizar operador
+    /**
+     * http://localhost:8080/api/operadores/{id}
+     * @param operador
+     * @return
+     */
     @PutMapping("/api/operadores")
     public ResponseEntity<Operador> update (@RequestBody Operador operador){
         if (operador.getId() == null){
@@ -82,7 +87,12 @@ public class OperadorController {
         Operador result = operadorRepository.save(operador);
         return ResponseEntity.ok(result);
     }
-
+    //eliminar operador
+    /**
+     * http://localhost:8080/api/operadores/{id}
+     * @param id
+     * @return
+     */
     @DeleteMapping("/api/operadores/{id}")
     public ResponseEntity<Operador> delete (@PathVariable Long id){
         if(!operadorRepository.existsById(id)){
@@ -94,11 +104,4 @@ public class OperadorController {
         return ResponseEntity.noContent().build();
     }
 }
-
-
-
-
-    //actualizar operador
-
-    //eliminar operador
 
