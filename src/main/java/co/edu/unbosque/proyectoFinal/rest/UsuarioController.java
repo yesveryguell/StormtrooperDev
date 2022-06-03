@@ -1,4 +1,4 @@
-package co.edu.unbosque.proyectoFinal.controller;
+package co.edu.unbosque.proyectoFinal.rest;
 
 import co.edu.unbosque.proyectoFinal.entities.Usuario;
 import co.edu.unbosque.proyectoFinal.repository.UsuarioRepository;
@@ -66,6 +66,8 @@ public class UsuarioController {
         Usuario result = usuarioRepository.save(usuario);
         return ResponseEntity.ok(result);
     }
+
+
     //Actualizar Usuario
 
     /**

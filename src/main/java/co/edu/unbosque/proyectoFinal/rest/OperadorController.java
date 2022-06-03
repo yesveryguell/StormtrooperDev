@@ -1,4 +1,4 @@
-package co.edu.unbosque.proyectoFinal.controller;
+package co.edu.unbosque.proyectoFinal.rest;
 
 import co.edu.unbosque.proyectoFinal.entities.Operador;
 import co.edu.unbosque.proyectoFinal.repository.OperadorRepository;

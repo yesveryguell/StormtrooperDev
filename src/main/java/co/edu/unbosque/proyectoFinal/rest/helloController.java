@@ -1,4 +1,4 @@
-package co.edu.unbosque.proyectoFinal.controller;
+package co.edu.unbosque.proyectoFinal.rest;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
