@@ -9,7 +9,9 @@ public class Auditoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long idUsuario;
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
     private String fecha;
     private String evento;
 
@@ -17,9 +19,8 @@ public class Auditoria {
 
     }
 
-    public Auditoria(Long id, Long idUsuario, String fecha, String evento){
+    public Auditoria(Long id, String fecha, String evento) {
         this.id = id;
-        this.idUsuario = idUsuario;
         this.fecha = fecha;
         this.evento = evento;
     }
@@ -30,14 +31,6 @@ public class Auditoria {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Long idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public String getFecha() {
@@ -55,7 +48,5 @@ public class Auditoria {
     public void setEvento(String evento) {
         this.evento = evento;
     }
-
-
 }
 

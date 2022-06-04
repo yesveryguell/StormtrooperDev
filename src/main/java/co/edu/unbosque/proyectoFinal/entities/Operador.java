@@ -9,25 +9,26 @@ public class Operador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
-    private  int id_cuadrilla;
+    @ManyToOne( fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_cuadrilla")
+    private Cuadrilla cuadrilla;
     private  int id_turno;
     private String nombre;
     private String apellido;
     private String cedula;
-    private String telefono;
-    private boolean estado ;
+    private boolean estado;
 
-    public Operador() {
+    public Operador(){
+
     }
 
-    public Operador(Long id, int id_cuadrilla, int id_turno, String nombre, String apellido, String cedula, String telefono, boolean estado) {
+    public Operador(Long id, Cuadrilla cuadrilla, int id_turno, String nombre, String apellido, String cedula, boolean estado) {
         this.id = id;
-        this.id_cuadrilla = id_cuadrilla;
+        this.cuadrilla = cuadrilla;
         this.id_turno = id_turno;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
-        this.telefono = telefono;
         this.estado = estado;
     }
 
@@ -39,12 +40,12 @@ public class Operador {
         this.id = id;
     }
 
-    public int getId_cuadrilla() {
-        return id_cuadrilla;
+    public Cuadrilla getCuadrilla() {
+        return cuadrilla;
     }
 
-    public void setId_cuadrilla(int id_cuadrilla) {
-        this.id_cuadrilla = id_cuadrilla;
+    public void setCuadrilla(Cuadrilla cuadrilla) {
+        this.cuadrilla = cuadrilla;
     }
 
     public int getId_turno() {
@@ -77,14 +78,6 @@ public class Operador {
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
     }
 
     public boolean isEstado() {

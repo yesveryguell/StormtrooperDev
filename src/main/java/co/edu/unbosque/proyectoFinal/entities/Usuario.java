@@ -1,5 +1,7 @@
 package co.edu.unbosque.proyectoFinal.entities;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -15,6 +17,9 @@ public class Usuario {
     private String telefono;
     private String direccion;
     private boolean estado;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Auditoria> auditorias = new ArrayList<>();
 
     public Usuario() {
     }
