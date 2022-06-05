@@ -1,43 +1,51 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+@Data
+@ToString
 @Entity
+@Table(name = "ordenTrabajo")
 public class OrdenTrabajo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne( fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_cuadrilla")
-    private Cuadrilla cuadrilla;
-    @ManyToOne( fetch = FetchType.LAZY)
+
+    @ManyToOne()
     @JoinColumn(name = "id_zona")
     private Zona zona;
-    private String nombre_trabajo;
+
+    private String nombretrabajo;
     private Calendar fecha_inicio;
     private Calendar fecha_fin;
     private boolean estado;
 
-    @OneToMany(mappedBy = "ordenTrabajo", cascade = CascadeType.ALL)
-    private List<Material> materials = new ArrayList<>();
+    @OneToMany(mappedBy = "ordenTrabajo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Material> material;
 
-    public OrdenTrabajo(){
+
+    public OrdenTrabajo(Long id) {
+        super();
+        this.id = id;
 
     }
 
-    public OrdenTrabajo(Long id, Cuadrilla cuadrilla, Zona zona, String nombre_trabajo, Calendar fecha_inicio, Calendar fecha_fin, boolean estado, List<Material> materials) {
+    public OrdenTrabajo(Long id, Zona zona, String nombretrabajo, Calendar fecha_inicio, Calendar fecha_fin, boolean estado) {
         this.id = id;
-        this.cuadrilla = cuadrilla;
         this.zona = zona;
-        this.nombre_trabajo = nombre_trabajo;
+        this.nombretrabajo = nombretrabajo;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.estado = estado;
-        this.materials = materials;
+    }
+
+    public OrdenTrabajo() {
     }
 
     public Long getId() {
@@ -48,14 +56,6 @@ public class OrdenTrabajo {
         this.id = id;
     }
 
-    public Cuadrilla getCuadrilla() {
-        return cuadrilla;
-    }
-
-    public void setCuadrilla(Cuadrilla cuadrilla) {
-        this.cuadrilla = cuadrilla;
-    }
-
     public Zona getZona() {
         return zona;
     }
@@ -64,12 +64,12 @@ public class OrdenTrabajo {
         this.zona = zona;
     }
 
-    public String getNombre_trabajo() {
-        return nombre_trabajo;
+    public String getNombretrabajo() {
+        return nombretrabajo;
     }
 
-    public void setNombre_trabajo(String nombre_trabajo) {
-        this.nombre_trabajo = nombre_trabajo;
+    public void setNombretrabajo(String nombretrabajo) {
+        this.nombretrabajo = nombretrabajo;
     }
 
     public Calendar getFecha_inicio() {
@@ -94,13 +94,5 @@ public class OrdenTrabajo {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-
-    public List<Material> getMaterials() {
-        return materials;
-    }
-
-    public void setMaterials(List<Material> materials) {
-        this.materials = materials;
     }
 }

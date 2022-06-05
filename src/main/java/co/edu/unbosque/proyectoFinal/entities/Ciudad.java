@@ -3,8 +3,13 @@ package co.edu.unbosque.proyectoFinal.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
+@Table(name = "ciudad")
 public class Ciudad {
 
     @Id
@@ -13,17 +18,23 @@ public class Ciudad {
     private String nombre;
     private boolean estado;
 
-    @OneToMany(mappedBy = "ciudad", cascade = CascadeType.ALL)
-    private List<Zona> zonas = new ArrayList<>();
+    @OneToMany(mappedBy = "ciudad", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Zona> zonas;
 
-    public Ciudad(){
 
+    public Ciudad(Long id){
+        super();
+        this.id = id;
     }
 
     public Ciudad(Long id, String nombre, boolean estado) {
         this.id = id;
         this.nombre = nombre;
         this.estado = estado;
+    }
+
+    public Ciudad() {
+
     }
 
     public Long getId() {
@@ -49,4 +60,5 @@ public class Ciudad {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
 }

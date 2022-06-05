@@ -15,11 +15,11 @@ public class Cuadrilla {
     private Long id_turno;
     private boolean estado;
 
-    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
-    private List<Operador> operadores = new ArrayList<>();
-
-    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
-    private List<OrdenTrabajo> ordenTrabajos = new ArrayList<>();
+//    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
+//    private List<Operador> operadores = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
+//    private List<OrdenTrabajo> ordenTrabajos = new ArrayList<>();
 
     public Cuadrilla() {
     }

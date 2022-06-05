@@ -1,45 +1,31 @@
-package co.edu.unbosque.proyectoFinal.entities;
+package co.edu.unbosque.proyectoFinal.dto;
 
+import co.edu.unbosque.proyectoFinal.entities.Ciudad;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 @Data
 @ToString
-@Entity
-@Table(name = "zona")
-public class Zona {
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+public class ZonaResponse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
- //   private Long ciudad;
-    @ManyToOne()
-    @JoinColumn(name = "id_ciudad")
     private Ciudad ciudad;
-   // private Ciudad ciudad;
     private int vertice1;
     private int vertice2;
     private int vertice3;
     private int vertice4;
     private boolean estado;
-    private int x;
 
-    @OneToMany(mappedBy = "zona", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrdenTrabajo> ordenTrabajo;
-
-
-    public Zona(Long id){
-            super();
-            this.id = id;
+    public ZonaResponse() {
     }
 
-    public Zona(Long id, Ciudad ciudad, int vertice1, int vertice2, int vertice3, int vertice4, boolean estado) {
+    public ZonaResponse(Long id, Ciudad ciudad, int vertice1, int vertice2, int vertice3, int vertice4, boolean estado) {
         this.id = id;
         this.ciudad = ciudad;
         this.vertice1 = vertice1;
@@ -47,18 +33,6 @@ public class Zona {
         this.vertice3 = vertice3;
         this.vertice4 = vertice4;
         this.estado = estado;
-    }
-
-    public Zona() {
-
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
     }
 
     public Long getId() {
@@ -115,18 +89,5 @@ public class Zona {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
-    }
-
-    public Zona getZona() {
-        Zona zona = new Zona();
-        zona.setId(id);
-        zona.setCiudad(ciudad);
-        zona.setVertice1(vertice1);
-        zona.setVertice2(vertice2);
-        zona.setVertice3(vertice3);
-        zona.setVertice4(vertice4);
-        zona.setEstado(estado);
-        zona.setX(x);
-        return zona;
     }
 }

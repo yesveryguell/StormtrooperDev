@@ -57,6 +57,7 @@ protected void configure(HttpSecurity http) throws Exception {
             .authorizeRequests().antMatchers("/api/auth/**").permitAll()
             .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**").permitAll()
             .antMatchers("/api/hello/**").permitAll()
+            .antMatchers("/ciudad").permitAll()
             .antMatchers("/").permitAll()
             .anyRequest().authenticated();
 
