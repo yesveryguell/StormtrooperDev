@@ -69,7 +69,7 @@ public class CiudadServicelmpl implements CiudadService {
         try {
             this.ciudadRepository.deleteById(id);
         } catch (Exception e) {
-            log.warn("Error trying to delete car by id {}", id, e);
+            log.warn("Error trying to delete city by id {}", id, e);
         }
     }
 

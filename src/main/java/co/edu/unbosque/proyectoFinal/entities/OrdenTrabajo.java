@@ -21,6 +21,10 @@ public class OrdenTrabajo {
     @JoinColumn(name = "id_zona")
     private Zona zona;
 
+    @ManyToOne()
+    @JoinColumn(name = "id_cuadrilla")
+    private Cuadrilla cuadrilla;
+
     private String nombretrabajo;
     private Calendar fecha_inicio;
     private Calendar fecha_fin;

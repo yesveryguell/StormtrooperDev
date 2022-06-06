@@ -27,6 +27,7 @@ public class Ciudad {
         this.id = id;
     }
 
+
     public Ciudad(Long id, String nombre, boolean estado) {
         this.id = id;
         this.nombre = nombre;
