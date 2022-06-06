@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "empresaProveedora")
 public class EmpresaProveedora {
 
     @Id
@@ -15,11 +16,13 @@ public class EmpresaProveedora {
     private String telefono;
     private String correo;
     private boolean estado;
+
     @OneToMany(mappedBy = "empresaProveedora", cascade = CascadeType.ALL)
-    private List<Cuadrilla> cuadrillas = new ArrayList<>();
+    private List<Cuadrilla> cuadrillas ;
 
-    public EmpresaProveedora(){
-
+    public EmpresaProveedora(Long id) {
+        super();
+        this.id = id;
     }
 
     public EmpresaProveedora(Long id, String nombre, String direccion, String telefono, String correo, boolean estado) {
@@ -29,6 +32,10 @@ public class EmpresaProveedora {
         this.telefono = telefono;
         this.correo = correo;
         this.estado = estado;
+    }
+
+    public EmpresaProveedora() {
+
     }
 
     public Long getId() {

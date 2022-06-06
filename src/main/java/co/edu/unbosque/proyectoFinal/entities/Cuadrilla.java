@@ -1,33 +1,63 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Data
+@ToString
 @Entity
+@Table(name = "cuadrilla")
 public class Cuadrilla {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne( fetch = FetchType.LAZY)
+
+    @ManyToOne()
     @JoinColumn(name = "id_empresa")
     private EmpresaProveedora empresaProveedora;
+
+//    @ManyToOne()
+//    @JoinColumn(name = "id_turno")
+//    private Turno turno;
+
+    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TurnoCuadrilla> turnoCuadrillas;
+
+    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrdenTrabajo> ordenTrabajos;
+
     private Long id_turno;
     private boolean estado;
 
-    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
-    private List<Operador> operadores = new ArrayList<>();
+//    @ManyToOne
+//    //@JoinColumn(name = "turno_cuadrilla_id")
+//    private TurnoCuadrilla turnoCuadrilla;
 
-    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL)
-    private List<OrdenTrabajo> ordenTrabajos = new ArrayList<>();
 
-    public Cuadrilla() {
+
+//    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<OrdenTrabajo> ordenTrabajo;
+
+
+
+    public Cuadrilla(Long id){
+        super();
+        this.id = id;
     }
 
-    public Cuadrilla(Long id, Long id_turno, boolean estado) {
+    public Cuadrilla(Long id, EmpresaProveedora empresaProveedora, Long id_turno, boolean estado) {
         this.id = id;
+        this.empresaProveedora = empresaProveedora;
         this.id_turno = id_turno;
         this.estado = estado;
+    }
+
+    public Cuadrilla() {
+
     }
 
     public Long getId() {
@@ -38,6 +68,13 @@ public class Cuadrilla {
         this.id = id;
     }
 
+    public EmpresaProveedora getEmpresaProveedora() {
+        return empresaProveedora;
+    }
+
+    public void setEmpresaProveedora(EmpresaProveedora empresaProveedora) {
+        this.empresaProveedora = empresaProveedora;
+    }
     public Long getId_turno() {
         return id_turno;
     }
@@ -52,5 +89,20 @@ public class Cuadrilla {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+//    public TurnoCuadrilla getTurnoCuadrilla() {
+//        return turnoCuadrilla;
+//    }
+//
+//    public void setTurnoCuadrilla(TurnoCuadrilla turnoCuadrilla) {
+//        this.turnoCuadrilla = turnoCuadrilla;
+//    }
+
+    public Cuadrilla getCuadrilla() {
+        Cuadrilla cuadrilla = new Cuadrilla();
+        cuadrilla.setId(this.id);
+        cuadrilla.setId_turno(this.id_turno);
+        cuadrilla.setEstado(this.estado);
+        return cuadrilla;
     }
 }

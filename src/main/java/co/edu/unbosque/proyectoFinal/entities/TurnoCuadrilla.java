@@ -1,28 +1,48 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
-import javax.persistence.*;
+import lombok.Data;
+import lombok.ToString;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
+@ToString
 @Entity
+@Table(name = "turnoCuadrilla")
 public class TurnoCuadrilla {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long id_Cuadrilla;
-    @ManyToOne( fetch = FetchType.LAZY)
+
+//    @OneToMany(mappedBy = "turnoCuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "id_cuadrilla")
+//    private List<Cuadrilla> cuadrillas;
+    @ManyToOne()
+    @JoinColumn(name = "id_cuadrilla")
+    private Cuadrilla cuadrilla;
+
+    @ManyToOne()
     @JoinColumn(name = "id_Turno")
     private Turno turno;
+
     private boolean estado;
 
-    public TurnoCuadrilla(){
-
+    public TurnoCuadrilla(Long id) {
+        super();
+        this.id = id;
     }
 
-    public TurnoCuadrilla(Long id, Long id_Cuadrilla, Turno turno, boolean estado) {
+    public TurnoCuadrilla(Long id, Cuadrilla cuadrilla, Turno turno, boolean estado) {
         this.id = id;
-        this.id_Cuadrilla = id_Cuadrilla;
+        this.cuadrilla = cuadrilla;
         this.turno = turno;
         this.estado = estado;
+    }
+
+    public TurnoCuadrilla() {
+
     }
 
     public Long getId() {
@@ -33,12 +53,12 @@ public class TurnoCuadrilla {
         this.id = id;
     }
 
-    public Long getId_Cuadrilla() {
-        return id_Cuadrilla;
+    public Cuadrilla getCuadrilla() {
+        return cuadrilla;
     }
 
-    public void setId_Cuadrilla(Long id_Cuadrilla) {
-        this.id_Cuadrilla = id_Cuadrilla;
+    public void setCuadrilla(Cuadrilla cuadrilla) {
+        this.cuadrilla = cuadrilla;
     }
 
     public Turno getTurno() {
@@ -55,5 +75,14 @@ public class TurnoCuadrilla {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public TurnoCuadrilla getTurnoCuadrilla() {
+        TurnoCuadrilla turnoCuadrilla = new TurnoCuadrilla();
+        turnoCuadrilla.setId(this.id);
+        turnoCuadrilla.setCuadrilla(this.cuadrilla);
+        turnoCuadrilla.setTurno(this.turno);
+        turnoCuadrilla.setEstado(this.estado);
+        return turnoCuadrilla;
     }
 }

@@ -1,16 +1,23 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
 
+@Data
+@ToString
 @Entity
 public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne( fetch = FetchType.LAZY)
+
+    @ManyToOne()
     @JoinColumn(name = "id_ordenTrabajo")
     private OrdenTrabajo ordenTrabajo;
+
     private String nombre;
     private String descripcion;
     private int cantidad;
@@ -84,5 +91,16 @@ public class Material {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+    public Material getMaterial() {
+        Material material = new Material();
+        material.setId(id);
+        material.setOrdenTrabajo(ordenTrabajo);
+        material.setNombre(nombre);
+        material.setDescripcion(descripcion);
+        material.setCantidad(cantidad);
+        material.setPrecio(precio);
+        material.setEstado(estado);
+        return material;
     }
 }

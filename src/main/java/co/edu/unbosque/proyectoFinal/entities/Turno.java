@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "turno")
 public class Turno {
 
     @Id
@@ -13,10 +14,13 @@ public class Turno {
     private String jornada;
     private String descripcion;
     private boolean estado;
+
     @OneToMany(mappedBy = "turno", cascade = CascadeType.ALL)
     private List<TurnoCuadrilla> turnoCuadrillas = new ArrayList<>();
 
-    public Turno() {
+    public Turno(Long id) {
+        super();
+        this.id = id;
     }
 
     public Turno(Long id, String jornada, String descripcion, boolean estado) {
@@ -24,6 +28,10 @@ public class Turno {
         this.jornada = jornada;
         this.descripcion = descripcion;
         this.estado = estado;
+    }
+
+    public Turno() {
+
     }
 
     public Long getId() {
