@@ -28,7 +28,6 @@ public class Zona {
     private int vertice3;
     private int vertice4;
     private boolean estado;
-    private int x;
 
     @OneToMany(mappedBy = "zona", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdenTrabajo> ordenTrabajo;
@@ -53,13 +52,6 @@ public class Zona {
 
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
 
     public Long getId() {
         return id;
@@ -126,7 +118,6 @@ public class Zona {
         zona.setVertice3(vertice3);
         zona.setVertice4(vertice4);
         zona.setEstado(estado);
-        zona.setX(x);
         return zona;
     }
 }

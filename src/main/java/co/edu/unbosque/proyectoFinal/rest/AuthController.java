@@ -64,7 +64,7 @@ public class AuthController {
         }
 
         // Create new user's account
-        Usuario user = new Usuario(null,signUpRequest.getId_rol(),signUpRequest.getNombre(),signUpRequest.getCorreo(), encoder.encode(signUpRequest.getContrasena()),signUpRequest.getTelefono(),signUpRequest.getDireccion(),true);
+        Usuario user = new Usuario(null,signUpRequest.getRol(),signUpRequest.getCuadrilla(),signUpRequest.getNombre(),signUpRequest.getCorreo(), encoder.encode(signUpRequest.getContrasena()),signUpRequest.getTelefono(),signUpRequest.getDireccion(),true);
 
 
         usuarioRepository.save(user);

@@ -1,6 +1,7 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "rol")
@@ -11,6 +12,9 @@ public class Rol {
     private String nombre;
     private String descripcion;
     private boolean estado;
+
+    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Usuario> usuarios;
 
     public Rol(){
 

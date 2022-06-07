@@ -23,6 +23,8 @@ public class Cuadrilla {
 //    @ManyToOne()
 //    @JoinColumn(name = "id_turno")
 //    private Turno turno;
+    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Usuario> usuarios;
 
     @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TurnoCuadrilla> turnoCuadrillas;

@@ -1,8 +1,12 @@
 package co.edu.unbosque.proyectoFinal.security.payload;
 
+import co.edu.unbosque.proyectoFinal.entities.Cuadrilla;
+import co.edu.unbosque.proyectoFinal.entities.Rol;
+
 public class RegisterRequest {
     private Long id;
-    private int id_rol;
+    private Rol rol;
+    private Cuadrilla cuadrilla;
     private String nombre;
     private String correo;
     private String contrasena;
@@ -19,12 +23,20 @@ public class RegisterRequest {
         this.id = id;
     }
 
-    public int getId_rol() {
-        return id_rol;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Cuadrilla getCuadrilla() {
+        return cuadrilla;
+    }
+
+    public void setCuadrilla(Cuadrilla cuadrilla) {
+        this.cuadrilla = cuadrilla;
     }
 
     public String getNombre() {

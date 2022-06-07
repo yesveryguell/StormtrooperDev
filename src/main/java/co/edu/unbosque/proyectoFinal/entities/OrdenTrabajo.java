@@ -5,6 +5,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -26,8 +27,8 @@ public class OrdenTrabajo {
     private Cuadrilla cuadrilla;
 
     private String nombretrabajo;
-    private Calendar fecha_inicio;
-    private Calendar fecha_fin;
+    private Date fecha_inicio;
+    private Date fecha_fin;
     private boolean estado;
 
     @OneToMany(mappedBy = "ordenTrabajo", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -40,7 +41,7 @@ public class OrdenTrabajo {
 
     }
 
-    public OrdenTrabajo(Long id, Zona zona, String nombretrabajo, Calendar fecha_inicio, Calendar fecha_fin, boolean estado) {
+    public OrdenTrabajo(Long id, Zona zona, String nombretrabajo, Date fecha_inicio, Date fecha_fin, boolean estado) {
         this.id = id;
         this.zona = zona;
         this.nombretrabajo = nombretrabajo;
@@ -76,19 +77,19 @@ public class OrdenTrabajo {
         this.nombretrabajo = nombretrabajo;
     }
 
-    public Calendar getFecha_inicio() {
+    public Date getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Calendar fecha_inicio) {
+    public void setFecha_inicio(Date fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Calendar getFecha_fin() {
+    public Date getFecha_fin() {
         return fecha_fin;
     }
 
-    public void setFecha_fin(Calendar fecha_fin) {
+    public void setFecha_fin(Date fecha_fin) {
         this.fecha_fin = fecha_fin;
     }
 
