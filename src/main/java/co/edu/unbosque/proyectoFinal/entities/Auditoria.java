@@ -16,7 +16,9 @@ public class Auditoria {
     private Date fecha;
     private String evento;
 
-    public Auditoria(){
+    public Auditoria(Long id){
+        super();
+        this.id=id;
 
     }
 
@@ -24,6 +26,9 @@ public class Auditoria {
         this.id = id;
         this.fecha = fecha;
         this.evento = evento;
+    }
+
+    public Auditoria() {
     }
 
     public Long getId() {

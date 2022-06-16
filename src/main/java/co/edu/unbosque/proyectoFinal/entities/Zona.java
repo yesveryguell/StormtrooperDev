@@ -1,5 +1,7 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -18,7 +20,7 @@ public class Zona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
- //   private Long ciudad;
+ //   private Long ciuda
     @ManyToOne()
     @JoinColumn(name = "id_ciudad")
     private Ciudad ciudad;
@@ -28,7 +30,7 @@ public class Zona {
     private int vertice3;
     private int vertice4;
     private boolean estado;
-
+    @JsonIgnore
     @OneToMany(mappedBy = "zona", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrdenTrabajo> ordenTrabajo;
 
@@ -61,6 +63,7 @@ public class Zona {
         this.id = id;
     }
 
+    @JsonBackReference
     public Ciudad getCiudad() {
         return ciudad;
     }

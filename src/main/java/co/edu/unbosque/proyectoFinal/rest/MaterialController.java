@@ -53,9 +53,9 @@ public class MaterialController {
         return material0pt.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Buscar todas las zonas
+    // Buscar todas los materiales
     /**
-     * http://localhost:8085/api/zonas
+     * http://localhost:8085/api/material
      * @return
      */
     @GetMapping("/material")
@@ -67,10 +67,10 @@ public class MaterialController {
 
 
 
-    // Crear zona
+    // Crear material
 
     /**
-     * http://localhost:8085/api/zona
+     * http://localhost:8085/api/material
      *
      * @return
      */

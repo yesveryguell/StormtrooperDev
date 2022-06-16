@@ -16,7 +16,9 @@ public class Rol {
     @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Usuario> usuarios;
 
-    public Rol(){
+    public Rol(Long id){
+        super();
+        this.id = id;
 
     }
 
@@ -25,6 +27,9 @@ public class Rol {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
+    }
+
+    public Rol() {
     }
 
     public Long getId() {
