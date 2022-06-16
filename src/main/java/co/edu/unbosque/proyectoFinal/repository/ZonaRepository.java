@@ -11,8 +11,7 @@ import java.util.List;
 @Repository
 public interface ZonaRepository extends JpaRepository<Zona, Long> {
     List<Zona> findAll();
+
     List<Zona> findAllById(Long id);
-    //List<Zona> findByCiudadId(Long ciudadId);
-   // @Transactional
-   // void deleteByid_ciudad(long id_ciudad);
+
 }

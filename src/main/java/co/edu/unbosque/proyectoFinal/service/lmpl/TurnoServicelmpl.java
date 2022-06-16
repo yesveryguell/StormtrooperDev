@@ -46,14 +46,14 @@ public class TurnoServicelmpl implements TurnoService {
     public Turno save(Turno turno) {
         log.info("Creating new Turno");
 
-        if(!this.validate(turno))
+        if (!this.validate(turno))
             return null;
         Turno turnoDB = this.turnoRepository.save(turno);
         return turnoDB;
     }
 
     private boolean validate(Turno turno) {
-        if(turno == null) {
+        if (turno == null) {
             log.warn("Trying to create null turno");
             return false;
         }
@@ -63,7 +63,7 @@ public class TurnoServicelmpl implements TurnoService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting turno");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete turno with wrong id");
             return;
         }

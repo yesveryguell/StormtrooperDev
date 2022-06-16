@@ -7,8 +7,11 @@ import java.util.Optional;
 
 public interface TurnoCuadrillaService {
     List<TurnoCuadrilla> findAll();
+
     Optional<TurnoCuadrilla> findById(Long id);
+
     TurnoCuadrilla save(TurnoCuadrilla turnoCuadrilla);
+
     void deletebyId(Long id);
 
 }

@@ -43,14 +43,14 @@ public class MaterialServicelmpl implements MaterialService {
     public Material save(Material material) {
         log.info("Creating new Zona");
         Material nMaterial = material.getMaterial();
-        if(!this.validate(material))
+        if (!this.validate(material))
             return null;
         Material materialDB = this.materialRepository.save(material);
         return null;
     }
 
-    private boolean validate(  Material material) {
-        if(material == null) {
+    private boolean validate(Material material) {
+        if (material == null) {
             log.warn("Trying to create null zone");
             return false;
         }
@@ -61,7 +61,7 @@ public class MaterialServicelmpl implements MaterialService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting Zona");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete zone with wrong id");
             return;
         }

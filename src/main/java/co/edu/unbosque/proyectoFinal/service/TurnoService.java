@@ -8,8 +8,12 @@ import java.util.Optional;
 
 public interface TurnoService {
     List<Turno> findAll();
+
     Turno findByjornada(String jornada);
+
     Optional<Turno> findById(Long id);
+
     Turno save(Turno turno);
+
     void deletebyId(Long id);
 }

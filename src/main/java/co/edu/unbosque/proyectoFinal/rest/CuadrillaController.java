@@ -38,8 +38,10 @@ public class CuadrillaController {
     // Crud
 
     //Buscar cuadrilla por id
+
     /**
      * http://localhost:8085/api/cuadrilla/1
+     *
      * @param id
      * @return
      */
@@ -52,8 +54,10 @@ public class CuadrillaController {
     }
 
     // Buscar todas las cuadrillas
+
     /**
      * http://localhost:8085/api/cuadrilla/cuadrillas
+     *
      * @return
      */
     @GetMapping("/cuadrillas")
@@ -64,7 +68,6 @@ public class CuadrillaController {
     }
 
 
-
     // Crear Cuadrilla
 
     /**
@@ -73,7 +76,7 @@ public class CuadrillaController {
      * @return
      */
     @PostMapping("/crear/cuadrilla")
-    public  ResponseEntity<Cuadrilla> create(@RequestBody Cuadrilla cuadrilla) {
+    public ResponseEntity<Cuadrilla> create(@RequestBody Cuadrilla cuadrilla) {
         log.info("REST request to create a city");
         if (cuadrilla.getId() != null) {
             log.warn("Zone already exists");
@@ -89,13 +92,14 @@ public class CuadrillaController {
 
     /**
      * http://localhost:8085/api/zona
+     *
      * @param cuadrilla
      * @return
      */
     @PutMapping("/cuadrilla")
     public ResponseEntity<Cuadrilla> update(@RequestBody Cuadrilla cuadrilla) {
         log.info("REST request to update a Cuadrilla");
-        if(cuadrilla.getId() == null) {
+        if (cuadrilla.getId() == null) {
             log.warn("Cuadrilla does not exist");
             return ResponseEntity.badRequest().build();
         }
@@ -105,6 +109,7 @@ public class CuadrillaController {
 
     /**
      * http://localhost:8085/api/cuadrilla/1
+     *
      * @param id
      * @return
      */

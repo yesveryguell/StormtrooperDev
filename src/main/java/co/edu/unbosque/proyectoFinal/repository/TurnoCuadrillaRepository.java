@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface TurnoCuadrillaRepository  extends JpaRepository<TurnoCuadrilla, Long> {
-        List<TurnoCuadrilla> findAll();
-        List<TurnoCuadrilla> findAllById(Long id);
+public interface TurnoCuadrillaRepository extends JpaRepository<TurnoCuadrilla, Long> {
+    List<TurnoCuadrilla> findAll();
+
+    List<TurnoCuadrilla> findAllById(Long id);
 }

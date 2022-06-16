@@ -40,8 +40,10 @@ public class MaterialController {
     // Crud
 
     //Buscar zona por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */
@@ -54,8 +56,10 @@ public class MaterialController {
     }
 
     // Buscar todas los materiales
+
     /**
      * http://localhost:8085/api/material
+     *
      * @return
      */
     @GetMapping("/material")
@@ -66,7 +70,6 @@ public class MaterialController {
     }
 
 
-
     // Crear material
 
     /**
@@ -75,7 +78,7 @@ public class MaterialController {
      * @return
      */
     @PostMapping("/crear/material")
-    public  ResponseEntity<Material> create(@RequestBody Material material) {
+    public ResponseEntity<Material> create(@RequestBody Material material) {
         log.info("REST request to create a city");
         if (material.getId() != null) {
             log.warn("Zone already exists");
@@ -86,31 +89,26 @@ public class MaterialController {
         return ResponseEntity.ok(this.materialService.save(material));
     }
 
-//    @PostMapping("/creer")
-//    public Material creer(@RequestBody ZonaRequest request){
-//        System.out.println("hols");
-//        return ordenTrabajoRepository.save(request.getCiudad());
-//    }
-
     // Actualizar zona
 
     /**
-     *
      * @param material
      * @return
      */
     @PutMapping("/material")
     public ResponseEntity<Material> update(@RequestBody Material material) {
         log.info("REST request to update a Zone");
-        if(material.getId() == null) {
+        if (material.getId() == null) {
             log.warn("Zone does not exist");
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(this.materialService.save(material));
     }
     //Eliminar por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */

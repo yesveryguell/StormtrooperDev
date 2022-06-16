@@ -38,8 +38,10 @@ public class TurnoCuadrillaController {
     // Crud
 
     //Buscar turno cuadrilla por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */
@@ -52,8 +54,10 @@ public class TurnoCuadrillaController {
     }
 
     // Buscar todas las turnos Cuadrillas
+
     /**
      * http://localhost:8085/api/zonas
+     *
      * @return
      */
     @GetMapping("/turnoCuadrilla")
@@ -64,7 +68,6 @@ public class TurnoCuadrillaController {
     }
 
 
-
     // Crear zona
 
     /**
@@ -73,7 +76,7 @@ public class TurnoCuadrillaController {
      * @return
      */
     @PostMapping("/crear/turnoCuadrilla")
-    public  ResponseEntity<TurnoCuadrilla> create(@RequestBody TurnoCuadrilla turnoCuadrilla) {
+    public ResponseEntity<TurnoCuadrilla> create(@RequestBody TurnoCuadrilla turnoCuadrilla) {
         log.info("REST request to create a turnoCuadrilla");
         if (turnoCuadrilla.getId() != null) {
             log.warn("Zone already exists");
@@ -88,21 +91,24 @@ public class TurnoCuadrillaController {
 
     /**
      * http://localhost:8085/api/zona
+     *
      * @param turnoCuadrilla
      * @return
      */
     @PutMapping("/turnoCuadrilla")
     public ResponseEntity<TurnoCuadrilla> update(@RequestBody TurnoCuadrilla turnoCuadrilla) {
         log.info("REST request to update a Zone");
-        if(turnoCuadrilla.getId() == null) {
+        if (turnoCuadrilla.getId() == null) {
             log.warn("Zone does not exist");
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(this.turnoCuadrillaService.save(turnoCuadrilla));
     }
     //Eliminar por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */

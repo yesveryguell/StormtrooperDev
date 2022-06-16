@@ -27,8 +27,10 @@ public class EmpresaProveedoraController {
     // Crud
 
     //Buscar empresaProveedora por id
+
     /**
      * http://localhost:8085/api/ciudad/1
+     *
      * @param id
      * @return
      */
@@ -41,8 +43,10 @@ public class EmpresaProveedoraController {
     }
 
     // Buscar todas las EmpresaProveedoras
+
     /**
      * http://localhost:8085/api/ciudad
+     *
      * @return
      */
     @GetMapping("/EmpresaProveedoras")
@@ -53,9 +57,9 @@ public class EmpresaProveedoraController {
 
     // Crear ciudad
     @PostMapping("/empresaProveedora")
-    public  ResponseEntity<EmpresaProveedora> create(@RequestBody EmpresaProveedora empresaProveedora) {
+    public ResponseEntity<EmpresaProveedora> create(@RequestBody EmpresaProveedora empresaProveedora) {
         log.info("REST request to create a EmpresaProveedora");
-        if(empresaProveedora.getId() != null) {
+        if (empresaProveedora.getId() != null) {
             log.warn("EmpresaProveedora already exists");
             return ResponseEntity.badRequest().build();
         }
@@ -66,13 +70,14 @@ public class EmpresaProveedoraController {
 
     /**
      * http://localhost:8085/api/EmpresaProveedora
+     *
      * @param empresaProveedora
      * @return
      */
     @PutMapping("/empresaProveedora")
     public ResponseEntity<EmpresaProveedora> update(@RequestBody EmpresaProveedora empresaProveedora) {
         log.info("REST request to update a EmpresaProveedora");
-        if(empresaProveedora.getId() == null) {
+        if (empresaProveedora.getId() == null) {
             log.warn("EmpresaProveedora does not exist");
             return ResponseEntity.badRequest().build();
         }
@@ -82,6 +87,7 @@ public class EmpresaProveedoraController {
 
     /**
      * http://localhost:8085/api/empresaProveedora/1
+     *
      * @param id
      * @return
      */

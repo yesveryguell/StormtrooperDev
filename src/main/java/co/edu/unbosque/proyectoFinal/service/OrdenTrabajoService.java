@@ -8,8 +8,12 @@ import java.util.Optional;
 
 public interface OrdenTrabajoService {
     List<OrdenTrabajo> findAll();
+
     OrdenTrabajo findBynombretrabajo(String nombretrabajo);
+
     Optional<OrdenTrabajo> findById(Long id);
+
     OrdenTrabajo save(OrdenTrabajo ordenTrabajo);
+
     void deletebyId(Long id);
 }

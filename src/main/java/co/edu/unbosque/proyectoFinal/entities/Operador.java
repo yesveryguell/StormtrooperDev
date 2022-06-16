@@ -1,4 +1,5 @@
 package co.edu.unbosque.proyectoFinal.entities;
+
 import javax.persistence.*;
 
 
@@ -8,8 +9,8 @@ public class Operador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
-    @ManyToOne( fetch = FetchType.LAZY)
+    private Long id;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cuadrilla")
     private Cuadrilla cuadrilla;
     private String nombre;
@@ -17,9 +18,9 @@ public class Operador {
     private String cedula;
     private boolean estado;
 
-    public Operador(Long id){
+    public Operador(Long id) {
         super();
-        this.id=id;
+        this.id = id;
 
     }
 

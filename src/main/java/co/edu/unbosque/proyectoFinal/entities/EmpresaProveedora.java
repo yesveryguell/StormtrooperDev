@@ -18,7 +18,7 @@ public class EmpresaProveedora {
     private boolean estado;
 
     @OneToMany(mappedBy = "empresaProveedora", cascade = CascadeType.ALL)
-    private List<Cuadrilla> cuadrillas ;
+    private List<Cuadrilla> cuadrillas;
 
     public EmpresaProveedora(Long id) {
         super();

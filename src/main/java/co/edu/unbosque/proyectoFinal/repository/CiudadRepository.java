@@ -8,11 +8,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CiudadRepository  extends JpaRepository<Ciudad, Long>{
+public interface CiudadRepository extends JpaRepository<Ciudad, Long> {
 
-  //  List<ZonaResponse> getJoinInformation();
+    //  List<ZonaResponse> getJoinInformation();
     List<Ciudad> findAll();
+
     List<Ciudad> findAllById(Long id);
+
     Ciudad findBynombre(String nombre);
 
 }

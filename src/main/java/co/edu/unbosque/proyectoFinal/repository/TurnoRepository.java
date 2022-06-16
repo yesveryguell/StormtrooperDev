@@ -9,6 +9,8 @@ import java.util.List;
 @Repository
 public interface TurnoRepository extends JpaRepository<Turno, Long> {
     List<Turno> findAll();
+
     List<Turno> findAllById(Long id);
+
     Turno findByjornada(String jornada);
 }

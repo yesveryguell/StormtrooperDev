@@ -6,6 +6,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @Data
 @ToString
 @Entity
@@ -20,7 +21,7 @@ public class Cuadrilla {
     @JoinColumn(name = "id_empresa")
     private EmpresaProveedora empresaProveedora;
 
-//    @ManyToOne()
+    //    @ManyToOne()
 //    @JoinColumn(name = "id_turno")
 //    private Turno turno;
     @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -35,18 +36,8 @@ public class Cuadrilla {
     private Long id_turno;
     private boolean estado;
 
-//    @ManyToOne
-//    //@JoinColumn(name = "turno_cuadrilla_id")
-//    private TurnoCuadrilla turnoCuadrilla;
 
-
-
-//    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<OrdenTrabajo> ordenTrabajo;
-
-
-
-    public Cuadrilla(Long id){
+    public Cuadrilla(Long id) {
         super();
         this.id = id;
     }
@@ -77,6 +68,7 @@ public class Cuadrilla {
     public void setEmpresaProveedora(EmpresaProveedora empresaProveedora) {
         this.empresaProveedora = empresaProveedora;
     }
+
     public Long getId_turno() {
         return id_turno;
     }

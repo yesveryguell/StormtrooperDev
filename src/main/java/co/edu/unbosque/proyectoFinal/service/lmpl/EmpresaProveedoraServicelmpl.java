@@ -43,13 +43,14 @@ public class EmpresaProveedoraServicelmpl implements EmpresaProveedoraService {
     @Override
     public EmpresaProveedora save(EmpresaProveedora empresaProveedora) {
         log.info("Creating new EmpresaProveedora");
-        if(!this.validate(empresaProveedora))
+        if (!this.validate(empresaProveedora))
             return null;
         EmpresaProveedora empresaProveedoraDB = this.empresaProveedoraRepository.save(empresaProveedora);
         return empresaProveedoraDB;
     }
+
     private boolean validate(EmpresaProveedora empresaProveedora) {
-        if(empresaProveedora == null) {
+        if (empresaProveedora == null) {
             log.warn("Trying to create null EmpresaProveedora");
             return false;
         }
@@ -60,7 +61,7 @@ public class EmpresaProveedoraServicelmpl implements EmpresaProveedoraService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting empresa provvedora");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete empresa provvedora with wrong id");
             return;
         }
