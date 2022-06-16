@@ -3,6 +3,9 @@ package co.edu.unbosque.proyectoFinal.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +20,8 @@ public class Ciudad {
     private Long id;
     private String nombre;
     private boolean estado;
-
     @OneToMany(mappedBy = "ciudad", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Zona> zonas;
 
 

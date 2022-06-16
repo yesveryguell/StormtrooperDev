@@ -51,7 +51,7 @@ public class TurnoController {
         return this.turnoService.findAll();
     }
 
-    // Crear ciudad
+    // Crear turno
     @PostMapping("/turno")
     public  ResponseEntity<Turno> create(@RequestBody Turno turno) {
         log.info("REST request to create a city");

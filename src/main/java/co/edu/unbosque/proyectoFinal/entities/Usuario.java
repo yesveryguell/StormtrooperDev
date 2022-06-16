@@ -10,7 +10,15 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int id_rol;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_rol")
+    private Rol rol;
+
+    @ManyToOne()
+    @JoinColumn(name = "id_cuadrilla")
+    private Cuadrilla cuadrilla;
+
     private String nombre;
     private String correo;
     private String contrasena;
@@ -21,20 +29,27 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Auditoria> auditorias = new ArrayList<>();
 
-    public Usuario() {
+
+
+    public Usuario(Long id) {
+        super();
+        this.id = id;
     }
 
-    public Usuario(Long id, int id_rol, String nombre, String correo, String contrasena, String telefono, String direccion, boolean estado) {
+    public Usuario(Long id, Rol rol, Cuadrilla cuadrilla, String nombre, String correo, String contrasena, String telefono, String direccion, boolean estado) {
         this.id = id;
-        this.id_rol = id_rol;
+        this.rol = rol;
+        this.cuadrilla = cuadrilla;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
         this.direccion = direccion;
         this.estado = estado;
+    }
 
-       }
+    public Usuario() {
+    }
 
     public Long getId() {
         return id;
@@ -44,12 +59,20 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getId_rol() {
-        return id_rol;
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setId_rol(int id_rol) {
-        this.id_rol = id_rol;
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Cuadrilla getCuadrilla() {
+        return cuadrilla;
+    }
+
+    public void setCuadrilla(Cuadrilla cuadrilla) {
+        this.cuadrilla = cuadrilla;
     }
 
     public String getNombre() {

@@ -12,24 +12,27 @@ public class Operador {
     @ManyToOne( fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cuadrilla")
     private Cuadrilla cuadrilla;
-    private  int id_turno;
     private String nombre;
     private String apellido;
     private String cedula;
     private boolean estado;
 
-    public Operador(){
+    public Operador(Long id){
+        super();
+        this.id=id;
 
     }
 
-    public Operador(Long id, Cuadrilla cuadrilla, int id_turno, String nombre, String apellido, String cedula, boolean estado) {
+    public Operador(Long id, Cuadrilla cuadrilla, String nombre, String apellido, String cedula, boolean estado) {
         this.id = id;
         this.cuadrilla = cuadrilla;
-        this.id_turno = id_turno;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
         this.estado = estado;
+    }
+
+    public Operador() {
     }
 
     public Long getId() {
@@ -46,14 +49,6 @@ public class Operador {
 
     public void setCuadrilla(Cuadrilla cuadrilla) {
         this.cuadrilla = cuadrilla;
-    }
-
-    public int getId_turno() {
-        return id_turno;
-    }
-
-    public void setId_turno(int id_turno) {
-        this.id_turno = id_turno;
     }
 
     public String getNombre() {

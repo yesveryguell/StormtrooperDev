@@ -1,6 +1,7 @@
 package co.edu.unbosque.proyectoFinal.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "rol")
@@ -12,7 +13,12 @@ public class Rol {
     private String descripcion;
     private boolean estado;
 
-    public Rol(){
+    @OneToMany(mappedBy = "rol", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Usuario> usuarios;
+
+    public Rol(Long id){
+        super();
+        this.id = id;
 
     }
 
@@ -21,6 +27,9 @@ public class Rol {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.estado = estado;
+    }
+
+    public Rol() {
     }
 
     public Long getId() {

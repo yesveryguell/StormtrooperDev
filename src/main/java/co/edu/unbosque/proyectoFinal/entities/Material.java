@@ -24,7 +24,9 @@ public class Material {
     private int precio;
     private boolean estado;
 
-    public Material() {
+    public Material(Long id) {
+        super();
+        this.id=id;
     }
 
     public Material(Long id, OrdenTrabajo ordenTrabajo, String nombre, String descripcion, int cantidad, int precio, boolean estado) {
@@ -35,6 +37,9 @@ public class Material {
         this.cantidad = cantidad;
         this.precio = precio;
         this.estado = estado;
+    }
+
+    public Material() {
     }
 
     public Long getId() {

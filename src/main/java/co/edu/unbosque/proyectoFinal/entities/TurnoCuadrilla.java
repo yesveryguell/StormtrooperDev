@@ -16,9 +16,6 @@ public class TurnoCuadrilla {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @OneToMany(mappedBy = "turnoCuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "id_cuadrilla")
-//    private List<Cuadrilla> cuadrillas;
     @ManyToOne()
     @JoinColumn(name = "id_cuadrilla")
     private Cuadrilla cuadrilla;
