@@ -26,7 +26,7 @@ public class Material {
 
     public Material(Long id) {
         super();
-        this.id=id;
+        this.id = id;
     }
 
     public Material(Long id, OrdenTrabajo ordenTrabajo, String nombre, String descripcion, int cantidad, int precio, boolean estado) {
@@ -97,6 +97,7 @@ public class Material {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
     public Material getMaterial() {
         Material material = new Material();
         material.setId(id);

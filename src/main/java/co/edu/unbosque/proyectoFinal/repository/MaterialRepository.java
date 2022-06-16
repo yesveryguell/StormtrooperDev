@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface MaterialRepository extends JpaRepository<Material, Long> {
     List<Material> findAll();
+
     List<Material> findAllById(Long id);
 }
 

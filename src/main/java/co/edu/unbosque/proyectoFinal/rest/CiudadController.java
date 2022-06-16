@@ -26,8 +26,10 @@ public class CiudadController {
     // Crud
 
     //Buscar ciudad por id
+
     /**
      * http://localhost:8085/api/ciudad/1
+     *
      * @param id
      * @return
      */
@@ -40,8 +42,10 @@ public class CiudadController {
     }
 
     // Buscar todas las ciudades
+
     /**
      * http://localhost:8085/api/ciudad
+     *
      * @return
      */
     @GetMapping("/ciudades")
@@ -52,9 +56,9 @@ public class CiudadController {
 
     // Crear ciudad
     @PostMapping("/ciudad")
-    public  ResponseEntity<Ciudad> create(@RequestBody Ciudad ciudad) {
+    public ResponseEntity<Ciudad> create(@RequestBody Ciudad ciudad) {
         log.info("REST request to create a city");
-        if(ciudad.getId() != null) {
+        if (ciudad.getId() != null) {
             log.warn("City already exists");
             return ResponseEntity.badRequest().build();
         }
@@ -65,21 +69,24 @@ public class CiudadController {
 
     /**
      * http://localhost:8085/api/ciudad
+     *
      * @param ciudad
      * @return
      */
     @PutMapping("/ciudad")
     public ResponseEntity<Ciudad> update(@RequestBody Ciudad ciudad) {
         log.info("REST request to update a city");
-        if(ciudad.getId() == null) {
+        if (ciudad.getId() == null) {
             log.warn("City does not exist");
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(this.ciudadService.save(ciudad));
     }
     //Eliminar por id
+
     /**
      * http://localhost:8085/api/ciudad/1
+     *
      * @param id
      * @return
      */
@@ -89,8 +96,6 @@ public class CiudadController {
         this.ciudadService.deletebyId(id);
         return ResponseEntity.noContent().build();
     }
-
-
 
 
 }

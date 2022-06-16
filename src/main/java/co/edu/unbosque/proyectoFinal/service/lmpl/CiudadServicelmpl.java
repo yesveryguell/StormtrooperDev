@@ -43,16 +43,15 @@ public class CiudadServicelmpl implements CiudadService {
     @Override
     public Ciudad save(Ciudad ciudad) {
         log.info("Creating new City");
-        if(!this.validate(ciudad))
+        if (!this.validate(ciudad))
             return null;
         Ciudad ciudadDB = this.ciudadRepository.save(ciudad);
         return ciudadDB;
     }
 
 
-
     private boolean validate(Ciudad ciudad) {
-        if(ciudad == null) {
+        if (ciudad == null) {
             log.warn("Trying to create null city");
             return false;
         }
@@ -62,7 +61,7 @@ public class CiudadServicelmpl implements CiudadService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting City");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete city with wrong id");
             return;
         }

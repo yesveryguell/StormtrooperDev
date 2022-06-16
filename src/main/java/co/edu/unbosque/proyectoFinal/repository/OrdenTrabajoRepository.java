@@ -8,9 +8,11 @@ import java.util.List;
 
 @Repository
 public interface OrdenTrabajoRepository extends JpaRepository<OrdenTrabajo, Long> {
-        List<OrdenTrabajo> findAll();
-        List<OrdenTrabajo> findAllById(Long id);
-        OrdenTrabajo findBynombretrabajo(String nombretrabajo);
+    List<OrdenTrabajo> findAll();
+
+    List<OrdenTrabajo> findAllById(Long id);
+
+    OrdenTrabajo findBynombretrabajo(String nombretrabajo);
 }
 
 

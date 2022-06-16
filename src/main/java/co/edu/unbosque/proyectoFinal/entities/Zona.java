@@ -20,11 +20,11 @@ public class Zona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
- //   private Long ciuda
+    //   private Long ciuda
     @ManyToOne()
     @JoinColumn(name = "id_ciudad")
     private Ciudad ciudad;
-   // private Ciudad ciudad;
+    // private Ciudad ciudad;
     private int vertice1;
     private int vertice2;
     private int vertice3;
@@ -35,9 +35,9 @@ public class Zona {
     private List<OrdenTrabajo> ordenTrabajo;
 
 
-    public Zona(Long id){
-            super();
-            this.id = id;
+    public Zona(Long id) {
+        super();
+        this.id = id;
     }
 
     public Zona(Long id, Ciudad ciudad, int vertice1, int vertice2, int vertice3, int vertice4, boolean estado) {

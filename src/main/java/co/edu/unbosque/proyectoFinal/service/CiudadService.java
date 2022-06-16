@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface CiudadService {
     List<Ciudad> findAll();
+
     Ciudad findBynombre(String nombre);
+
     Optional<Ciudad> findById(Long id);
+
     Ciudad save(Ciudad ciudad);
+
     void deletebyId(Long id);
 }

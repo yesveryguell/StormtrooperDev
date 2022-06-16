@@ -10,15 +10,15 @@ public class Auditoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne( fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
     private Date fecha;
     private String evento;
 
-    public Auditoria(Long id){
+    public Auditoria(Long id) {
         super();
-        this.id=id;
+        this.id = id;
 
     }
 

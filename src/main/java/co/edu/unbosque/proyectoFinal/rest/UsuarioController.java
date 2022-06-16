@@ -93,6 +93,7 @@ public class UsuarioController {
 
     /**
      * http://localhost:8080/api/usuarios/{id}
+     *
      * @param id
      * @return
      */

@@ -1,4 +1,5 @@
 package co.edu.unbosque.proyectoFinal.entities;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,6 @@ public class Usuario {
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<Auditoria> auditorias = new ArrayList<>();
-
 
 
     public Usuario(Long id) {

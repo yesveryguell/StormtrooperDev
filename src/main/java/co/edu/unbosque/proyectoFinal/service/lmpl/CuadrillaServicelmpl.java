@@ -43,13 +43,14 @@ public class CuadrillaServicelmpl implements CuadrillaService {
     public Cuadrilla save(Cuadrilla cuadrilla) {
         log.info("Creating new Zona");
         Cuadrilla nCuadrilla = cuadrilla.getCuadrilla();
-        if(!this.validate(cuadrilla))
+        if (!this.validate(cuadrilla))
             return null;
         Cuadrilla cuadrillaDB = this.cuadrillaRepository.save(cuadrilla);
         return null;
     }
-    private boolean validate(  Cuadrilla cuadrilla) {
-        if(cuadrilla == null) {
+
+    private boolean validate(Cuadrilla cuadrilla) {
+        if (cuadrilla == null) {
             log.warn("Trying to create null zone");
             return false;
         }
@@ -60,7 +61,7 @@ public class CuadrillaServicelmpl implements CuadrillaService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting cuadrilla");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete zone with wrong id");
             return;
         }

@@ -25,12 +25,6 @@ public class ZonaServicelmpl implements ZonaService {
         this.zonaRepository = zonaRepository;
     }
 
-//    @Override
-//    public boolean addZona(Long id) {
-//        log.info("Executing addZona");
-//        Zona zona = new Zona(id);
-//        return this.ciudad.getZonas().add(zona);
-//    }
 
     @Override
     public List<Zona> findAll() {
@@ -49,14 +43,14 @@ public class ZonaServicelmpl implements ZonaService {
     public Zona save(Zona zona) {
         log.info("Creating new Zona");
         Zona nZona = zona.getZona();
-        if(!this.validate(zona))
+        if (!this.validate(zona))
             return null;
         Zona zonaDB = this.zonaRepository.save(zona);
         return null;
     }
 
-    private boolean validate(  Zona zona) {
-        if(zona == null) {
+    private boolean validate(Zona zona) {
+        if (zona == null) {
             log.warn("Trying to create null zone");
             return false;
         }
@@ -67,7 +61,7 @@ public class ZonaServicelmpl implements ZonaService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting Zona");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete zone with wrong id");
             return;
         }

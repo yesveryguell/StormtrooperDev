@@ -34,15 +34,16 @@ public class ZonaController {
     private ZonaRepository zonaRepository;
 
 
-
     public ZonaController(ZonaService zonaService) {
         this.zonaService = zonaService;
     }
     // Crud
 
     //Buscar zona por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */
@@ -55,8 +56,10 @@ public class ZonaController {
     }
 
     // Buscar todas las zonas
+
     /**
      * http://localhost:8085/api/zonas
+     *
      * @return
      */
     @GetMapping("/zonas")
@@ -67,7 +70,6 @@ public class ZonaController {
     }
 
 
-
     // Crear zona
 
     /**
@@ -76,7 +78,7 @@ public class ZonaController {
      * @return
      */
     @PostMapping("/crear/zona")
-    public  ResponseEntity<Zona> create(@RequestBody Zona zona) {
+    public ResponseEntity<Zona> create(@RequestBody Zona zona) {
         log.info("REST request to create a city");
         if (zona.getId() != null) {
             log.warn("Zone already exists");
@@ -94,27 +96,28 @@ public class ZonaController {
 //    }
 
 
-
-
     // Actualizar zona
 
     /**
      * http://localhost:8085/api/zona
+     *
      * @param zona
      * @return
      */
     @PutMapping("/zona")
     public ResponseEntity<Zona> update(@RequestBody Zona zona) {
         log.info("REST request to update a Zone");
-        if(zona.getId() == null) {
+        if (zona.getId() == null) {
             log.warn("Zone does not exist");
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(this.zonaService.save(zona));
     }
     //Eliminar por id
+
     /**
      * http://localhost:8085/api/zona/1
+     *
      * @param id
      * @return
      */
@@ -124,7 +127,6 @@ public class ZonaController {
         this.zonaService.deletebyId(id);
         return ResponseEntity.noContent().build();
     }
-
 
 
 }

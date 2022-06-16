@@ -43,14 +43,14 @@ public class TurnoCuadrillaServicelmpl implements TurnoCuadrillaService {
     public TurnoCuadrilla save(TurnoCuadrilla turnoCuadrilla) {
         log.info("Creating new Zona");
         TurnoCuadrilla nTurnoCuadrilla = turnoCuadrilla.getTurnoCuadrilla();
-        if(!this.validate(turnoCuadrilla))
+        if (!this.validate(turnoCuadrilla))
             return null;
         TurnoCuadrilla turnoCuadrillaDB = this.turnoCuadrillaRepository.save(turnoCuadrilla);
         return null;
     }
 
-    private boolean validate(  TurnoCuadrilla turnoCuadrilla) {
-        if(turnoCuadrilla == null) {
+    private boolean validate(TurnoCuadrilla turnoCuadrilla) {
+        if (turnoCuadrilla == null) {
             log.warn("Trying to create null zone");
             return false;
         }

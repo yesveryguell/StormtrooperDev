@@ -34,7 +34,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest loginRequest){
+    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
@@ -46,6 +46,7 @@ public class AuthController {
 
         return ResponseEntity.ok(new JwtResponse(jwt));
     }
+
     @PostMapping("/register")
     public ResponseEntity<MessageResponse> register(@RequestBody RegisterRequest signUpRequest) {
 
@@ -64,7 +65,7 @@ public class AuthController {
         }
 
         // Create new user's account
-        Usuario user = new Usuario(null,signUpRequest.getRol(),signUpRequest.getCuadrilla(),signUpRequest.getNombre(),signUpRequest.getCorreo(), encoder.encode(signUpRequest.getContrasena()),signUpRequest.getTelefono(),signUpRequest.getDireccion(),true);
+        Usuario user = new Usuario(null, signUpRequest.getRol(), signUpRequest.getCuadrilla(), signUpRequest.getNombre(), signUpRequest.getCorreo(), encoder.encode(signUpRequest.getContrasena()), signUpRequest.getTelefono(), signUpRequest.getDireccion(), true);
 
 
         usuarioRepository.save(user);

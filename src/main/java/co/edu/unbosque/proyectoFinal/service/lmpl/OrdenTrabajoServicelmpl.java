@@ -45,16 +45,15 @@ public class OrdenTrabajoServicelmpl implements OrdenTrabajoService {
     @Override
     public OrdenTrabajo save(OrdenTrabajo ordenTrabajo) {
         log.info("Creating ordenTrabajo");
-        if(!this.validate(ordenTrabajo))
+        if (!this.validate(ordenTrabajo))
             return null;
         OrdenTrabajo ordenTrabajoBD = this.ordenTrabajoRepository.save(ordenTrabajo);
         return ordenTrabajoBD;
     }
 
 
-
     private boolean validate(OrdenTrabajo ordenTrabajo) {
-        if(ordenTrabajo == null) {
+        if (ordenTrabajo == null) {
             log.warn("Trying to create null ordenTrabajo");
             return false;
         }
@@ -64,7 +63,7 @@ public class OrdenTrabajoServicelmpl implements OrdenTrabajoService {
     @Override
     public void deletebyId(Long id) {
         log.info("Deleting ordenTrabajo");
-        if(id == null || id < 0 || id ==0) {
+        if (id == null || id < 0 || id == 0) {
             log.warn("Trying to delete ordenTrabajo with wrong id");
             return;
         }

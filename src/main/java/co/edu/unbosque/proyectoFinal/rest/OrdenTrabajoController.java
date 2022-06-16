@@ -29,6 +29,7 @@ public class OrdenTrabajoController {
 
     /**
      * http://localhost:8085/api/ordenTabajo/1
+     *
      * @param id
      * @return
      */
@@ -44,6 +45,7 @@ public class OrdenTrabajoController {
 
     /**
      * http://localhost:8085/api/ordenTrabajo
+     *
      * @return
      */
     @GetMapping("/OrdenesTrabajo")
@@ -56,13 +58,14 @@ public class OrdenTrabajoController {
 
     /**
      * http://localhost:8085/api/ordenTrabajo
+     *
      * @param ordenTrabajo
      * @return
      */
     @PostMapping("/ordenTrabajo")
-    public  ResponseEntity<OrdenTrabajo> create(@RequestBody OrdenTrabajo ordenTrabajo) {
+    public ResponseEntity<OrdenTrabajo> create(@RequestBody OrdenTrabajo ordenTrabajo) {
         log.info("REST request to create a OrdenTrabajo");
-        if(ordenTrabajo.getId() != null) {
+        if (ordenTrabajo.getId() != null) {
             log.warn("OrdenTrabajo already exists");
             return ResponseEntity.badRequest().build();
         }
@@ -73,13 +76,14 @@ public class OrdenTrabajoController {
 
     /**
      * http://localhost:8085/api/ordenTrabajo/
+     *
      * @param ordenTrabajo
      * @return
      */
     @PutMapping("/ordenTrabajo")
     public ResponseEntity<OrdenTrabajo> update(@RequestBody OrdenTrabajo ordenTrabajo) {
         log.info("REST request to update a OrdenTrabajo");
-        if(ordenTrabajo.getId() == null) {
+        if (ordenTrabajo.getId() == null) {
             log.warn("OrdenTrabajo does not exist");
             return ResponseEntity.badRequest().build();
         }
@@ -89,6 +93,7 @@ public class OrdenTrabajoController {
 
     /**
      * http://localhost:8085/api/ordenTrabajo/1
+     *
      * @param id
      * @return
      */
@@ -98,8 +103,6 @@ public class OrdenTrabajoController {
         this.ordenTrabajoService.deletebyId(id);
         return ResponseEntity.noContent().build();
     }
-
-
 
 
 }

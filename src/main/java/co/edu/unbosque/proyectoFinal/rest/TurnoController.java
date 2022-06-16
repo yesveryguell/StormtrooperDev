@@ -27,8 +27,10 @@ public class TurnoController {
     // Crud
 
     //Buscar turno por id
+
     /**
      * http://localhost:8085/api/ciudad/1
+     *
      * @param id
      * @return
      */
@@ -41,8 +43,10 @@ public class TurnoController {
     }
 
     // Buscar todas las turnos
+
     /**
      * http://localhost:8085/api/ciudad
+     *
      * @return
      */
     @GetMapping("/turnos")
@@ -53,9 +57,9 @@ public class TurnoController {
 
     // Crear turno
     @PostMapping("/turno")
-    public  ResponseEntity<Turno> create(@RequestBody Turno turno) {
+    public ResponseEntity<Turno> create(@RequestBody Turno turno) {
         log.info("REST request to create a city");
-        if(turno.getId() != null) {
+        if (turno.getId() != null) {
             log.warn("turno already exists");
             return ResponseEntity.badRequest().build();
         }
@@ -66,21 +70,24 @@ public class TurnoController {
 
     /**
      * http://localhost:8085/api/turno
+     *
      * @param turno
      * @return
      */
     @PutMapping("/turno")
     public ResponseEntity<Turno> update(@RequestBody Turno turno) {
         log.info("REST request to update a turno");
-        if(turno.getId() == null) {
+        if (turno.getId() == null) {
             log.warn("turno does not exist");
             return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(this.turnoService.save(turno));
     }
     //Eliminar por id
+
     /**
      * http://localhost:8085/api/ciudad/1
+     *
      * @param id
      * @return
      */

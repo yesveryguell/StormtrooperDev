@@ -7,8 +7,12 @@ import java.util.Optional;
 
 public interface EmpresaProveedoraService {
     List<EmpresaProveedora> findAll();
+
     EmpresaProveedora findBynombre(String nombre);
+
     Optional<EmpresaProveedora> findById(Long id);
+
     EmpresaProveedora save(EmpresaProveedora empresaProveedora);
+
     void deletebyId(Long id);
 }

@@ -26,10 +26,11 @@ public class OperadorController {
 
     /**
      * http://localhost:8080/api/operadores
+     *
      * @return
      */
     @GetMapping("/api/operadores")
-    public List<Operador> FindAll(){
+    public List<Operador> FindAll() {
         return operadorRepository.findAll();
     }
 
@@ -39,29 +40,31 @@ public class OperadorController {
      * http://localhost:8080/api/operadores/{id}
      * Request
      * Response
+     *
      * @param id
      * @return
      */
     @GetMapping("/api/operadores/{id}")
-    public ResponseEntity<Operador> findById(@PathVariable Long id){
+    public ResponseEntity<Operador> findById(@PathVariable Long id) {
         Optional<Operador> operador = operadorRepository.findById(id);
-       if (operador.isPresent())
-           return ResponseEntity.ok(operador.get());
-       else
-           return ResponseEntity.notFound().build();
+        if (operador.isPresent())
+            return ResponseEntity.ok(operador.get());
+        else
+            return ResponseEntity.notFound().build();
 
     }
     //crear operador
 
     /**
      * http://localhost:8080/api/operadores
+     *
      * @param operador
      * @param headers
      * @return
      */
     @PostMapping("/api/operadores")
-    public ResponseEntity<Operador> create (@RequestBody Operador operador, @RequestHeader HttpHeaders headers){
-        if (operador.getId() != null){
+    public ResponseEntity<Operador> create(@RequestBody Operador operador, @RequestHeader HttpHeaders headers) {
+        if (operador.getId() != null) {
             log.warn("Operador with id {} already exists");
             return ResponseEntity.badRequest().build();
         }
@@ -69,18 +72,20 @@ public class OperadorController {
         return ResponseEntity.ok(result);
     }
     //actualizar operador
+
     /**
      * http://localhost:8080/api/operadores/{id}
+     *
      * @param operador
      * @return
      */
     @PutMapping("/api/operadores")
-    public ResponseEntity<Operador> update (@RequestBody Operador operador){
-        if (operador.getId() == null){
+    public ResponseEntity<Operador> update(@RequestBody Operador operador) {
+        if (operador.getId() == null) {
             log.warn("Operador with id {} already exists");
             return ResponseEntity.badRequest().build();
         }
-        if(!operadorRepository.existsById(operador.getId())){
+        if (!operadorRepository.existsById(operador.getId())) {
             log.warn("Try to update a non existing operador");
             return ResponseEntity.notFound().build();
         }
@@ -88,14 +93,16 @@ public class OperadorController {
         return ResponseEntity.ok(result);
     }
     //eliminar operador
+
     /**
      * http://localhost:8080/api/operadores/{id}
+     *
      * @param id
      * @return
      */
     @DeleteMapping("/api/operadores/{id}")
-    public ResponseEntity<Operador> delete (@PathVariable Long id){
-        if(!operadorRepository.existsById(id)){
+    public ResponseEntity<Operador> delete(@PathVariable Long id) {
+        if (!operadorRepository.existsById(id)) {
             log.warn("Try to delete a non existing operador");
             return ResponseEntity.notFound().build();
         }

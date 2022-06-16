@@ -10,6 +10,8 @@ import java.util.List;
 public interface EmpresaProveedoraRepository extends JpaRepository<EmpresaProveedora, Long> {
 
     List<EmpresaProveedora> findAll();
+
     List<EmpresaProveedora> findAllById(Long id);
+
     EmpresaProveedora findBynombre(String nombre);
 }

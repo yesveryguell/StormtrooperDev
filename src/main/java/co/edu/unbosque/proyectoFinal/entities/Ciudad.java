@@ -4,12 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 
 @Entity
 @Table(name = "ciudad")
@@ -25,7 +21,7 @@ public class Ciudad {
     private List<Zona> zonas;
 
 
-    public Ciudad(Long id){
+    public Ciudad(Long id) {
         super();
         this.id = id;
     }
