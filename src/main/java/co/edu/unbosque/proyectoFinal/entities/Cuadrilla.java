@@ -21,11 +21,13 @@ public class Cuadrilla {
     @JoinColumn(name = "id_empresa")
     private EmpresaProveedora empresaProveedora;
 
+    @ManyToOne()
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
     //    @ManyToOne()
 //    @JoinColumn(name = "id_turno")
 //    private Turno turno;
-    @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Usuario> usuarios;
 
     @OneToMany(mappedBy = "cuadrilla", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TurnoCuadrilla> turnoCuadrillas;
@@ -42,9 +44,20 @@ public class Cuadrilla {
         this.id = id;
     }
 
-    public Cuadrilla(Long id, EmpresaProveedora empresaProveedora, Long id_turno, boolean estado) {
+    public Cuadrilla(Long id, EmpresaProveedora empresaProveedora, Usuario usuario, List<TurnoCuadrilla> turnoCuadrillas, List<OrdenTrabajo> ordenTrabajos, Long id_turno, boolean estado) {
         this.id = id;
         this.empresaProveedora = empresaProveedora;
+        this.usuario = usuario;
+        this.turnoCuadrillas = turnoCuadrillas;
+        this.ordenTrabajos = ordenTrabajos;
+        this.id_turno = id_turno;
+        this.estado = estado;
+    }
+
+    public Cuadrilla(Long id, EmpresaProveedora empresaProveedora, Usuario usuario, Long id_turno, boolean estado) {
+        this.id = id;
+        this.empresaProveedora = empresaProveedora;
+        this.usuario = usuario;
         this.id_turno = id_turno;
         this.estado = estado;
     }
@@ -67,6 +80,30 @@ public class Cuadrilla {
 
     public void setEmpresaProveedora(EmpresaProveedora empresaProveedora) {
         this.empresaProveedora = empresaProveedora;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<TurnoCuadrilla> getTurnoCuadrillas() {
+        return turnoCuadrillas;
+    }
+
+    public void setTurnoCuadrillas(List<TurnoCuadrilla> turnoCuadrillas) {
+        this.turnoCuadrillas = turnoCuadrillas;
+    }
+
+    public List<OrdenTrabajo> getOrdenTrabajos() {
+        return ordenTrabajos;
+    }
+
+    public void setOrdenTrabajos(List<OrdenTrabajo> ordenTrabajos) {
+        this.ordenTrabajos = ordenTrabajos;
     }
 
     public Long getId_turno() {
